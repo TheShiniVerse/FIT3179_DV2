@@ -6,7 +6,7 @@
     "height": 300,
 
     "data": {
-        "url": "../data/mode_time_dist_schooltype.csv",
+        "url": "https://raw.githubusercontent.com/TheShiniVerse/FIT3179_DV2/refs/heads/main/data/mode_time_dist_schooltype.csv",
         "format": {"type": "csv"}
     },
         
