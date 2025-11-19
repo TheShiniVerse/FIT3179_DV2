@@ -5,7 +5,7 @@
     "height": 300,
 
     "data": {
-        "url": "/data/school_type_count.csv",
+        "url": "../data/school_type_count.csv",
         "format": {"type": "csv"}
     },
 
