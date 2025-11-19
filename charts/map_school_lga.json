@@ -5,7 +5,7 @@
     "height": 450,
     
     "data": {
-        "url": "/data/lga_polygons.topojson",
+        "url": "../data/lga_polygons.topojson",
         "format": {"type": "topojson", "feature": "LGA_POLYGON"}  
     },
     "projection": {"type": "mercator"},
