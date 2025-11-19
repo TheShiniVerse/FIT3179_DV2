@@ -1,0 +1,45 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "How much of each school type is there?"},
+    "width": "container",
+    "height": 300,
+
+    "data": {
+        "url": "../data/school_type_count.csv",
+        "format": {"type": "csv"}
+    },
+
+    "mark": {
+        "type": "arc", 
+        "outerRadius": 130, 
+        "innerRadius": 60
+    },
+
+    "encoding": {
+        "theta": {
+            "field": "school_type_count", 
+            "type": "quantitative", 
+            "stack": true
+        },
+        "color": {
+            "field": "school_type", 
+            "type": "nominal", 
+            "title": "School Type",
+            "scale": {"range": ["#b67195", "#439894", "#b79a20"]}
+        },
+        "order": {
+            "field": "school_type_count", 
+            "sort": "ascending"
+        },
+        "tooltip":[
+            {"field": "school_type", "title": "School Type"},
+            {"field": "school_type_count", "title": "Number of Schools", "type": "quantitative"}
+        ]
+    },
+    
+    "config": {
+        "view": {
+            "stroke": "transparent"
+        }
+    }
+}

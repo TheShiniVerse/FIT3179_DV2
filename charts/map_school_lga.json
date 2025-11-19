@@ -1,0 +1,49 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "Schools in each Local Government Area of Victoria (2025)"},
+    "width": 700,
+    "height": 450,
+    
+    "data": {
+        "url": "../data/lga_polygons.topojson",
+        "format": {"type": "topojson", "feature": "LGA_POLYGON"}  
+    },
+    "projection": {"type": "mercator"},
+
+    "transform": [
+        {
+            "lookup": "properties.LGA_NAME",
+            "from": {
+                "data": {"url": "../data/schools_lga.csv"},
+                "key": "lga_name_upper",
+                "fields": ["school_count"]
+            }
+        }
+    ],
+
+    "mark": {"type": "geoshape"},
+
+    "encoding": {
+        "color": {
+            "field": "school_count",
+            "type": "quantitative",
+            "title": "No.of Schools",
+            "scale": {
+                "type": "threshold", 
+                "domain": [10, 20, 30, 50],
+                "scheme": "purples"
+            }
+        },
+        "tooltip": [
+          {"field": "properties.LGA_NAME", "type": "nominal", "title": "LGA Name"},
+          {"field": "school_count", "type": "quantitative", "title": "Schools"}
+        ]
+    },
+    "config": {
+        "view": {
+            "stroke": "transparent"
+        }
+    }
+
+}
+

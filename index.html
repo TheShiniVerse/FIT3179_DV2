@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Victorian Students Travel to School</title>
+
+    <!-- Import Vega & Vega-Lite -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <!-- Import pure.css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" 
+    integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css">
+
+    <!-- Google font: Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- CSS file -->
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+
+<body>
+    <!-- Start Page -->
+    <div class="page">
+        
+        <!-- START Header Section -->
+        <div class="pure-g">
+        <div class="pure-u-1">
+            <h1>How Victorian Students Travel to School</h1>
+            <h2>Locations of schools and the ways students move around Victoria</h2>
+            <p class="intro">
+                This visualisation explores how primary and secondary students across Victoria travel to school.
+                Using official Victorian Government datasets, we examine where schools are located, how many exist
+                in each Local Government Area (LGA), and how various modes of travel appear to assist different 
+                students in getting to school. 
+            </p>
+        </div>
+        </div>
+        <!-- END Header Section -->
+
+        <!-- START Map Section -->
+        <div class="pure-g">
+            <div class="pure-u-1">
+                <div id="vis-map" class="vis-container"></div>
+            </div>
+            <div class="pure-u-1">
+                <div class="description" >
+                    <h2>School Locations in Victoria.</h2>
+                    <p class="text-block">
+                    This choropleth map shows the number of schools in each Victorian LGA in 2025. It is 
+                    expected that there would be a higher concentration of schools in the suburbun regions 
+                    towards the city in comparison to outer regions of Victoria. However, there is a notable 
+                    amount of schools in rural areas like Mildura or East Gippsland which can indicate a 
+                    higher migration of families with students towards particular rural areas over the years. 
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- END Map Section -->
+
+
+        <!-- START Donut Section -->
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <div class="description description-left">
+                    <h2>Common Types of Schools.</h2>
+                    <p class="text-block">            
+                        Among many types, Victoria’s school system mainly includes primary schools. While it is no 
+                        surprise that there are a larger number of Primary and Secondary schools all together, this might
+                        help shine some light on the importance of having more special or other schools so that the state 
+                        continues to progress in inclusitivity as well as accessibility. 
+                    </p>
+                </div>
+            </div>
+            <div class="pure-u-1-2">
+                <div id="vis-donut" class="vis-container"></div>
+            </div>
+        </div>
+        <!-- END Donut Section -->
+
+
+        <!-- START Butterfly Section -->
+        <div class="pure-g">
+
+            <div class="pure-u-2-3">
+                <div id="vis-butterfly" class="vis-container"></div>
+            </div>
+            <div class="pure-u-1-3">
+                <div class="description description-right">
+                    <h2>How Students Travel.</h2>
+                    <p class="text-block">            
+                        The preferred mode of travel for both Primary and Secondary school students 
+                        appears to be travelling as a vehicle passenger. However, more Primary school
+                        students than Secondary school students travel this way while there are a vastly 
+                        greater number of Secondary school students who take the train indicating a 
+                        greater independance in travelling for older Victorian students. 
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <!-- END Butterfly Section -->
+
+
+        <!-- START Scatter Section -->
+        <div class="pure-g">
+
+            <div class="pure-u-1-3">
+                <div class="description description-left">
+                    <h2>Distance and Duration.</h2>
+                    <p class="text-block">
+                        In comparing the average travel time and distance for each mode, students who walk 
+                        to school reach school faster travelling a shorter distance while students who take 
+                        the train or school travel further and longer. Between the two main school levels, 
+                        Secondary school students generally tend to travel longer and further to school than 
+                        Primary school students which can indicate many factoring reasons like age and level 
+                        of indepenance, including the much greater number of Primary schools in Victoria. 
+                    </p>
+                </div>
+            </div>
+
+            <div class="pure-u-2-3">
+                <div id="vis-scatter" class="vis-container"></div>
+            </div>
+
+        </div>
+
+        <!-- END Scatter Section -->
+
+
+        <!-- START Name and References -->
+        <div class="pure-g">
+        <div class="pure-u-1-1 small-font">
+            <p>
+                A data visualisation by <strong>Harshini S Thanaraj</strong>.  
+                Data provided by <strong>DataVic</strong> and <strong>Transport Victoria (VISTA)</strong>.
+                <br>https://discover.data.vic.gov.au/dataset/school-locations-2025 
+                <br>https://opendata.transport.vic.gov.au/dataset/victorian-integrated-survey-of-travel-and-activity-vista/resource/55b79d5c-a04a-4fb4-a919-af6a47ad5f03
+            </p>
+        </div>
+        </div>
+        <!-- END Name and References -->
+
+    </div> <!-- End Page -->
+
+
+    <script type="text/javascript">
+        var map = "./charts/map_school_lga.json";
+        var donut= "./charts/donut_schooltype.json";
+        var butterfly = "./charts/butterfly_modeschool.json"
+        var scatter = "./charts/scatter_travel_info.json"
+
+        vegaEmbed("#vis-map", map, {actions: false});
+        vegaEmbed("#vis-donut", donut, {actions: false});
+        vegaEmbed("#vis-butterfly", butterfly, {actions: false});
+        vegaEmbed("#vis-scatter", scatter, {actions: false});
+    </script>
+
+</body>
+
+</html>

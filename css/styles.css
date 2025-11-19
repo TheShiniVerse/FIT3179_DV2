@@ -1,0 +1,71 @@
+body {
+    font-family: 'Roboto';
+    background-color: lightgray;
+    margin: 0;
+}
+
+h1 {
+    font-family: 'Roboto';
+    font-weight: 900;
+    text-align: center;
+    color: black;
+}
+
+h2 {
+    font-family: 'Roboto';
+    font-weight: 700;
+    text-align: center;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    color: #525252;
+}
+
+.page {
+    width: 850px;
+    background-color: white;
+    margin: auto;
+    padding: 50px;
+    padding-top: 35px;
+    border-radius: 6px;
+}
+
+.vis-container {
+    width: 100%;
+}
+
+.intro {
+    text-align: center;
+}
+
+.description h2 {
+    margin-top: 18px;
+    font-size: 24px;
+    font-weight: 450 ;
+}
+
+.description-right {
+    padding-left: 20px;
+}
+
+.description-left {
+    padding-right: 20px;
+}
+
+.text-block {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #444;
+    text-align: center;
+}
+
+.pure-g {
+    margin-top: 40px;
+}
+
+/* Footer text */
+.small-font {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+}

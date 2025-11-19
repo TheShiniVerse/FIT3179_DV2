@@ -1,0 +1,102 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "How long and far students travel using different modes?"},
+    "width": "container",
+    "height": 380,
+
+    "data": {
+        "url": "../data/mode_time_dist_schooltype.csv",
+        "format": {"type": "csv"}
+    },
+
+    "params": [
+        {
+            "name": "school_selection",
+            "bind": {
+                "input": "select",
+                "options": [null, "Primary School", "Secondary School"],
+                "labels": ["All Schools", "Primary School", "Secondary School"],
+                "name": "Filter School Level: "
+            }
+        }
+    ],
+
+    "transform": [
+        {"filter": "school_selection == null || datum.destplace == school_selection"}
+    ],
+
+    "mark": { 
+        "type": "circle"
+    },
+
+    "encoding": {
+        "x": {
+            "field": "jtetraveltime_avg",
+            "type": "quantitative",
+            "title": "Average Travel Time (mins)",
+            "axis": {"tickCount": 11},
+            "scale": {"type": "linear", "domain": [5,60]}
+        },
+
+        "y": {
+            "field": "jtedist_avg",
+            "type": "quantitative",
+            "title": "Average Distance (km)"
+        },
+
+        "color": {
+            "field": "jtemode",
+            "type": "nominal",
+            "title": "Travel Mode",
+            "scale": {
+                "domain": [
+                    "Bicycle",
+                    "Jogging",
+                    "Other",
+                    "Public Bus",
+                    "School Bus",
+                    "Taxi",
+                    "Train",
+                    "Tram",
+                    "Vehicle Driver",
+                    "Vehicle Passenger",
+                    "Walking"
+                ],
+                "range": [
+                    "#e41a1c",
+                    "#984ea3",
+                    "#ff7f00",
+                    "#a6cee3",
+                    "#377eb8",
+                    "#a65628",
+                    "#dd1c77",
+                    "#ffff99",
+                    "#2ca25f",
+                    "#a1d99b",
+                    "#d95f0e"
+                ]
+
+            }
+        },
+
+        "size": {
+            "field": "jtemode_count",
+            "type": "quantitative",
+            "title": "Number of Students",
+            "scale": {
+                "type": "threshold",
+                "domain": [50, 100, 200, 500],
+                "range": [150, 350, 550, 800, 1500]
+            },
+            "legend": {"orient": "right"}
+        },
+
+        "tooltip": [
+            {"field": "destplace", "type": "nominal", "title": "School type"},
+            {"field": "jtemode", "type": "nominal", "title": "Mode"},
+            {"field": "jtetraveltime_avg", "type": "quantitative", "title": "Avg time (mins)", "format": ".1f"},
+            {"field": "jtedist_avg", "type": "quantitative", "title": "Avg distance (km)", "format": ".2f"},
+            {"field": "jtemode_count", "type": "quantitative", "title": "Trips"}
+        ]
+    }
+}

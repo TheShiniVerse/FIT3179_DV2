@@ -1,0 +1,52 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "How do Primary and Secondary school students travel?"},
+    
+    "width": "container",
+    "height": 300,
+
+    "data": {
+        "url": "../data/mode_time_dist_schooltype.csv",
+        "format": {"type": "csv"}
+    },
+        
+    "transform": [
+        {  "calculate": "datum.destplace == 'Primary School' ? -datum.jtemode_count : datum.jtemode_count",
+        "as": "signed_count"}
+    ],
+                            
+
+    "mark": {"type": "bar"},
+
+    "encoding": {
+        "x": {
+            "aggregate": "sum", "field": "signed_count",
+            "type": "quantitative",
+            "title": "Trips (count)",
+            "axis": {"format": "s", "tickCount": 20},
+            "scale": {"type": "symlog", "constant": 50, "domain": [-2400, 2400]}
+        },
+        "y": {
+            "field": "jtemode",
+            "type": "nominal",
+            "title": "Travel Mode",
+            "sort": "-x"
+        },
+        "color": {
+            "field": "destplace",
+            "type": "nominal",
+            "scale": {"range": ["#b67195", "#439894"]},
+            "legend": {"orient": "top", "title": null}
+        },
+        "tooltip": [
+            {"field": "jtemode", "title": "Mode"},
+            {"field": "destplace", "title": "School Type"},
+            {"field": "jtemode_count", "title": "Trips", "type": "quantitative"}
+        ]
+    },
+    
+    "config": {
+        "view": {"stroke": null},
+        "axis": {"grid": false}
+    }
+}

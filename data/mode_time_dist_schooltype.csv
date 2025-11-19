@@ -1,0 +1,22 @@
+destplace,jtemode,jtedist_avg,jtemode_count,jtetraveltime_avg
+Primary School,Bicycle,1.39757575757576,99,13.2323232323232
+Primary School,Motorcycle,0.84,1,10
+Primary School,Other,2.39153846153846,13,14.2307692307692
+Primary School,Public Bus,4.414375,16,30.3125
+Primary School,School Bus,15.2658333333333,48,43.1458333333333
+Primary School,Train,12.29,6,45
+Primary School,Tram,2.02083333333333,12,24.8333333333333
+Primary School,Vehicle Driver,7.75529411764706,51,19.6078431372549
+Primary School,Vehicle Passenger,4.56063640220619,2357,13.1035214255409
+Primary School,Walking,0.843229813664596,644,11.6847826086957
+Secondary School,Bicycle,3.27972602739726,73,17.2191780821918
+Secondary School,Jogging,2.69,1,10
+Secondary School,Other,1.3,1,15
+Secondary School,Public Bus,7.83664804469274,179,39.8156424581006
+Secondary School,School Bus,12.6745348837209,258,42.2441860465116
+Secondary School,Taxi,3.93,2,10
+Secondary School,Train,14.497399103139,223,53.6502242152466
+Secondary School,Tram,6.24475409836066,61,37.5081967213115
+Secondary School,Vehicle Driver,10.983488372093,86,24.1046511627907
+Secondary School,Vehicle Passenger,6.79079229122056,1401,17.2155603140614
+Secondary School,Walking,1.36291316526611,357,17.0532212885154
