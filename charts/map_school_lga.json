@@ -14,7 +14,7 @@
         {
             "lookup": "properties.LGA_NAME",
             "from": {
-                "data": {"url": "../data/schools_lga.csv"},
+                "data": {"url": "/data/schools_lga.csv"},
                 "key": "lga_name_upper",
                 "fields": ["school_count"]
             }
